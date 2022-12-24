@@ -33,6 +33,7 @@
 				<li class="active"><a href="main.jsp">메인</a></li>
 				<li><a href="bbs.jsp">게시판</a></li>
 				<li><a href="eva.jsp">수강평</a></li>
+				<li><a href="Enrolment.jsp">수강신청</a></li>
 			</ul>
 			<%
 				if(userID == null){

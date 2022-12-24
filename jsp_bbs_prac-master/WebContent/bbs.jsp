@@ -46,6 +46,7 @@
 				<li><a href="main.jsp">메인</a></li>
 				<li class="active"><a href="bbs.jsp">게시판</a></li>
 				<li><a href="eva.jsp">수강평</a></li>
+				<li><a href="Enrolment.jsp">수강신청</a></li>
 			</ul>
 			<%
 				if(userID == null){
@@ -69,7 +70,7 @@
 							aria-expanded="false">회원관리<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="mypage.jsp">내정보</a></li>
-							<li><a href="Withdrawal.jsp">로그아웃</a></li>
+							<li><a href="Withdrawal.jsp">회원탈퇴</a></li>
 							<li><a href="logoutAction.jsp">로그아웃</a></li>
 						</ul>
 					</li>

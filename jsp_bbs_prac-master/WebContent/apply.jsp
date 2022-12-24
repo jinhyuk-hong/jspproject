@@ -57,6 +57,7 @@
 							aria-expanded="false">회원관리<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="mypage.jsp">내정보</a></li>
+							<li><a href="Withdrawal.jsp">회원탈퇴</a></li>
 							<li><a href="logoutAction.jsp">로그아웃</a></li>
 						</ul>
 					</li>
@@ -72,28 +73,43 @@
 	<div class="container">
 		<div class="row">
 
-			<form action="writeAction.jsp" method="post">
+			<form action="applyAction.jsp" method="post">
 				<table class="table table-striped"
 					style="text-align: center; border: 1px solid #dddddd">
 					<thead>
 						<tr>
 							<th colspan="2"
-								style="background-color: #eeeeee; text-align: center;">게시판
-								글쓰기 양식</th>
+								style="background-color: #eeeeee; text-align: center;">
+								수강신청 양식</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td><input type="text" class="form-control"
-								placeholder="글 제목" name="bbsTitle" maxlength="50" /></td>
+								placeholder="학생이름" name="gradeName" maxlength="50" /></td>
 						</tr>
 						<tr>
-							<td><textarea class="form-control" placeholder="글 내용"
-									name="bbsContent" maxlength="2048" style="height: 350px;"></textarea></td>
+							<div class="btn-group" data-toggle="buttons">
+							<label class="btn btn-primary active">
+								<input type="radio" name="stuList" autocomplete="off" value="JAVA" checked />JAVA
+							</label>
+							<label class="btn btn-primary">
+								<input type="radio" name="stuList" autocomplete="off" value="JSP"/>JSP
+							</label>
+							<label class="btn btn-primary">
+								<input type="radio" name="stuList" autocomplete="off" value="SPRING"/>SPRING
+							</label>
+							<label class="btn btn-primary">
+								<input type="radio" name="stuList" autocomplete="off" value="SPRING BOOT"/>SPRING BOOT
+							</label>
+							<label class="btn btn-primary">
+								<input type="radio" name="stuList" autocomplete="off" value="C++"/>C++
+							</label>
+						</div>
 						</tr>
 					</tbody>
 				</table>
-				<input type="submit" class="btn btn-primary pull-right" value="글쓰기" />
+				<input type="submit" class="btn btn-primary pull-right" value="수강신청하기" />
 			</form>
 		</div>
 	</div>
