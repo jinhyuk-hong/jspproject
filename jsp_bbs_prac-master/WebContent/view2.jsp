@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
-<%@ page import="bbs.Bbs" %>
-<%@ page import="bbs.BbsDAO" %>
+<%@ page import="Enrolment.EnrolmentDAO" %>
+<%@ page import="Enrolment.Enrolment" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,19 +18,19 @@
 		if (session.getAttribute("userID") != null) {
 			userID = (String) session.getAttribute("userID");
 		}
-		int bbsID = 0;
+		int stuID = 0;
 		// url에 bbsID가 넘어온다면 bbsID 변수에 정보 저장
-		if(request.getParameter("bbsID") != null){
-			bbsID = Integer.parseInt(request.getParameter("bbsID"));
+		if(request.getParameter("stuID") != null){
+			stuID = Integer.parseInt(request.getParameter("stuID"));
 		}
-		if (bbsID == 0){
+		if (stuID == 0){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('유효하지 않은 글입니다.')");
-			script.println("location.href = 'bbs.jsp'");
+			script.println("location.href = 'Enrolment.jsp'");
 			script.println("</script>");
 		}
-		Bbs bbs = new BbsDAO().getBbs(bbsID);
+		Enrolment stu = new EnrolmentDAO().getstu(stuID);
 	%>
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
@@ -72,7 +72,7 @@
 					<ul class="dropdown-menu">
 						<li><a href="logoutAction.jsp">로그아웃</a></li>
 						<li><a href="mypage.jsp">내정보</a></li>
-							<li><a href="Withdrawal.jsp">회원탈퇴</a></li>
+						<li><a href="Withdrawal.jsp">회원탈퇴</a></li>
 					</ul></li>
 			</ul>
 			<%
@@ -89,38 +89,38 @@
 				style="text-align: center; border: 1px solid #dddddd">
 				<thead>
 					<tr>
-						<th colspan="3" style="background-color: #eeeeee; text-align: center;">게시판 글 보기</th>
+						<th colspan="3" style="background-color: #eeeeee; text-align: center;">수강신청 목록 보기</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td style="width: 20%;">글 제목</td>
-						<td colspan="2"><%= bbs.getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&tr;") %></td>
+						<td colspan="2"><%= stu.getStuList().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&tr;") %></td>
 					</tr>
 					<tr>
 						<td>작성자</td>
-						<td colspan="2"><%= bbs.getUserID() %></td>
+						<td colspan="2"><%= stu.getGradeName() %></td>
 					</tr>
 					<tr>
 						<td>작성일자</td>
-						<td><%= bbs.getBbsDate().substring(0, 11) + bbs.getBbsDate().substring(11, 13) + "시" + bbs.getBbsDate().substring(14, 16) + "분" %></td>
+						<td><%= stu.getStuDate().substring(0, 11) + stu.getStuDate().substring(11, 13) + "시" + stu.getStuDate().substring(14, 16) + "분" %></td>
 					</tr>
 					<tr>
 						<td>내용</td>
-						<td colspan="2" style="min-height: 200px; text-align: left;"><%= bbs.getBbsContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&tr;").replaceAll("\n", "<br>") %></td>
+						<td colspan="2" style="min-height: 200px; text-align: left;"><%= stu.getStuList().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&tr;").replaceAll("\n", "<br>") %></td>
 					</tr>
 				</tbody>
 			</table>
-			<a href="bbs.jsp" class="btn btn-primary">목록</a>
+			<a href="Enrolment.jsp" class="btn btn-primary">목록</a>
 			<%
-				if(userID != null && userID.equals(bbs.getUserID())){
+				if(userID != null && userID.equals(stu.getStuID())){
 			%>
-					<a href="update.jsp?bbsID=<%=bbsID%>" class="btn btn-primary">수정</a>
-					<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?bbsID=<%=bbsID%>" class="btn btn-primary">삭제</a>
+					<a href="update2.jsp?stuID=<%=stuID%>" class="btn btn-primary">수정</a>
+					<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction2.jsp?stuID=<%=stuID%>" class="btn btn-primary">삭제</a>
 			<%
 				}
 			%>
-			<input type="submit" class="btn btn-primary pull-right" value="글쓰기" />
+			<input type="submit" class="btn btn-primary pull-right" value="수강신청하기" />
 		</div>
 	</div>
 

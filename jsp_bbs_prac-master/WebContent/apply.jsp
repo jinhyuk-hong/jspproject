@@ -88,7 +88,6 @@
 							<td><input type="text" class="form-control"
 								placeholder="학생이름" name="gradeName" maxlength="50" /></td>
 						</tr>
-						<tr>
 							<div class="btn-group" data-toggle="buttons">
 							<label class="btn btn-primary active">
 								<input type="radio" name="stuList" autocomplete="off" value="JAVA" checked />JAVA
@@ -106,7 +105,6 @@
 								<input type="radio" name="stuList" autocomplete="off" value="C++"/>C++
 							</label>
 						</div>
-						</tr>
 					</tbody>
 				</table>
 				<input type="submit" class="btn btn-primary pull-right" value="수강신청하기" />
