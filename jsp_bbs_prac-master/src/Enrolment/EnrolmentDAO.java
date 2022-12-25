@@ -57,15 +57,16 @@ public class EnrolmentDAO {
 		}
 		
 		// 글쓰기 정보 -> DB에 추가
-		public int write(String gradeName, String stuList) {
-			String SQL = "insert into enrolment values (?, ?, ?, ?,?)";
+		public int write(String gradeName,String userID, String stuList) {
+			String SQL = "insert into enrolment values (?, ?, ?, ?,?,?)";
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(SQL);
 				pstmt.setInt(1, getNext());
 				pstmt.setString(2, gradeName);
-				pstmt.setString(3, stuList);
-				pstmt.setString(4, getDate());
-				pstmt.setInt(5, 1);
+				pstmt.setString(3, userID);
+				pstmt.setString(4, stuList);
+				pstmt.setString(5, getDate());
+				pstmt.setInt(6, 1);
 				return pstmt.executeUpdate(); // 0 이상의 결과 반환
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -86,9 +87,10 @@ public class EnrolmentDAO {
 					Enrolment ent = new Enrolment();
 					ent.setStuID(rs.getString(1));
 					ent.setGradeName(rs.getString(2));
-					ent.setStuList(rs.getString(3));
-					ent.setStuDate(rs.getString(4));
-					ent.setStuAvailable(rs.getInt(5));
+					ent.setUserID(rs.getString(3));
+					ent.setStuList(rs.getString(4));
+					ent.setStuDate(rs.getString(5));
+					ent.setStuAvailable(rs.getInt(6));
 				
 					
 					list.add(ent);
@@ -126,9 +128,10 @@ public class EnrolmentDAO {
 					Enrolment ent = new Enrolment();
 					ent.setStuID(rs.getString(1));
 					ent.setGradeName(rs.getString(2));
-					ent.setStuList(rs.getString(3));
-					ent.setStuDate(rs.getString(4));
-					ent.setStuAvailable(rs.getInt(5));
+					ent.setUserID(rs.getString(3));
+					ent.setStuList(rs.getString(4));
+					ent.setStuDate(rs.getString(5));
+					ent.setStuAvailable(rs.getInt(6));
 					
 					return ent;
 				}

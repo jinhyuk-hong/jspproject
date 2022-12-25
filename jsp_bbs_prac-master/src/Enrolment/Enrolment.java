@@ -3,6 +3,7 @@ package Enrolment;
 public class Enrolment {
 	private String stuID;
 	private String gradeName;
+	private String userID;
 	private String stuList;
 	private String stuDate;
 	private int stuAvailable;
@@ -17,6 +18,12 @@ public class Enrolment {
 	}
 	public void setGradeName(String gradeName) {
 		this.gradeName = gradeName;
+	}
+	public String getUserID() {
+		return userID;
+	}
+	public void setUserID(String userID) {
+		this.userID = userID;
 	}
 	public String getStuList() {
 		return stuList;
@@ -36,6 +43,7 @@ public class Enrolment {
 	public void setStuAvailable(int stuAvailable) {
 		this.stuAvailable = stuAvailable;
 	}
+	
 	
 	
 	

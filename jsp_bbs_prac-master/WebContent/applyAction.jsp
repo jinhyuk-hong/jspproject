@@ -33,7 +33,7 @@
 				script.println("</script>");
 			} else {
 				EnrolmentDAO Enrolment = new EnrolmentDAO();
-				int result = Enrolment.write(enrolment.getGradeName(), enrolment.getStuList());
+				int result = Enrolment.write(enrolment.getGradeName(),userID, enrolment.getStuList());
 				if(result == -1){
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
