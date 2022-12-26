@@ -89,7 +89,7 @@
 				<thead>
 					<tr>
 						<th style="background-color: #eeeeee; text-align:center;">번호</th>
-						<th style="background-color: #eeeeee; text-align:center;">제목</th>
+						<th style="background-color: #eeeeee; text-align:center;">수강신청 목록</th>
 						<th style="background-color: #eeeeee; text-align:center;">작성자</th>
 						<th style="background-color: #eeeeee; text-align:center;">작성일</th>
 					</tr>

@@ -94,7 +94,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td style="width: 20%;">글 제목</td>
+						<td style="width: 20%;">수강신청 목록</td>
 						<td colspan="2"><%= stu.getStuList().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&tr;") %></td>
 					</tr>
 					<tr>

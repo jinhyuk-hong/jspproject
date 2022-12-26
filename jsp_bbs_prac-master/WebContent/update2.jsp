@@ -39,7 +39,7 @@
 			script.println("</script>");
 		}
 		Enrolment stu = new EnrolmentDAO().getstu(stuID);
-		if(!userID.equals(stu.getStuID())){
+		if(!userID.equals(stu.getUserID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('권한이 없습니다.')");
